@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | GoldenRidge Resort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Booking Cards Styling */
+        .bookings-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .booking-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .booking-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .booking-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .booking-status {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .booking-status.confirmed {
+            background: #10b981;
+            color: white;
+        }
+
+        .booking-status.completed {
+            background: #6366f1;
+            color: white;
+        }
+
+        .booking-details {
+            padding: 1.5rem;
+        }
+
+        .booking-details h4 {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            color: #1f2937;
+        }
+
+        .booking-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .info-item i {
+            color: #d4af37;
+            width: 20px;
+        }
+
+        .booking-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .booking-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: #1f2937;
+            font-size: 1.75rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #1f2937;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #6b7280;
+        }
+
+        .detail-value {
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">GoldenRidge <span>Resort</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rooms.html" class="nav-link">Rooms & Cottages</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="staff.html" class="nav-link">Our Team</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="user-auth-area">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                </div>
+                <a href="booking.html" class="btn-primary">Reserve</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="height: 40vh;">
+            <div class="hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+            </div>
+            <div class="hero-content">
+                <h1>My Profile</h1>
+                <p>Manage your account information and preferences.</p>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <div class="profile-container">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-avatar-large">
+                        <div class="profile-avatar-circle" id="profile-avatar-large">U</div>
+                        <button class="profile-avatar-edit" onclick="alert('Photo upload feature coming soon!')">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <h3 id="profile-sidebar-name">User Name</h3>
+                    <p id="profile-sidebar-email">user@example.com</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <strong id="total-bookings">2</strong>
+                                <span>Total Bookings</span>
+                            </div>
+                        </div>
+                        <div class="profile-stat">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong id="member-since">2025</strong>
+                                <span>Member Since</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Content -->
+                <div class="profile-content">
+                    <!-- Personal Information -->
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h3><i class="fas fa-user"></i> Personal Information</h3>
+                            <button class="btn-edit" onclick="toggleEdit('personal')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                        </div>
+                        <form id="personal-info-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullname">Full Name</label>
+                                    <input type="text" id="fullname" name="fullname" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" disabled>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+63 912 345 6789" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="birthdate">Birth Date</label>
+                                    <input type="date" id="birthdate" name="birthdate" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Your address"
+                                    disabled></textarea>
+                            </div>
+                            <div class="form-actions" id="personal-actions" style="display: none;">
+                                <button type="button" class="btn-secondary"
+                                    onclick="cancelEdit('personal')">Cancel</button>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Account Security -->
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h3><i class="fas fa-lock"></i> Account Security</h3>
+                            <button class="btn-edit" onclick="toggleEdit('security')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                        </div>
+                        <form id="security-form" class="profile-form">
+                            <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password" name="current-password" disabled>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password" name="new-password" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm Password</label>
+                                    <input type="password" id="confirm-password" name="confirm-password" disabled>
+                                </div>
+                            </div>
+                            <div class="form-actions" id="security-actions" style="display: none;">
+                                <button type="button" class="btn-secondary"
+                                    onclick="cancelEdit('security')">Cancel</button>
+                                <button type="submit" class="btn-primary">Update Password</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Preferences -->
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h3><i class="fas fa-cog"></i> Preferences</h3>
+                            <button class="btn-edit" onclick="toggleEdit('preferences')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                        </div>
+                        <form id="preferences-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="language">Language</label>
+                                    <select id="language" name="language" disabled>
+                                        <option value="en">English</option>
+                                        <option value="fil">Filipino</option>
+                                        <option value="es">Español</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="currency">Currency</label>
+                                    <select id="currency" name="currency" disabled>
+                                        <option value="php">PHP (₱)</option>
+                                        <option value="usd">USD ($)</option>
+                                        <option value="eur">EUR (€)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter" disabled>
+                                    <span>Subscribe to newsletter and special offers</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="notifications" name="notifications" disabled>
+                                    <span>Receive booking reminders and updates</span>
+                                </label>
+                            </div>
+                            <div class="form-actions" id="preferences-actions" style="display: none;">
+                                <button type="button" class="btn-secondary"
+                                    onclick="cancelEdit('preferences')">Cancel</button>
+                                <button type="submit" class="btn-primary">Save Preferences</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Recent Bookings -->
+                    <div class="profile-card">
+                        <div class="profile-card-header">
+                            <h3><i class="fas fa-history"></i> Recent Bookings</h3>
+                            <a href="booking.html" class="btn-edit">
+                                <i class="fas fa-plus"></i> New Booking
+                            </a>
+                        </div>
+                        <div class="bookings-list" id="bookings-list">
+                            <!-- Booking Card 1 -->
+                            <div class="booking-card">
+                                <div class="booking-image">
+                                    <img src="img/hotelroom.jpg" alt="Deluxe Ocean View">
+                                    <span class="booking-status confirmed">Confirmed</span>
+                                </div>
+                                <div class="booking-details">
+                                    <h4>Deluxe Ocean View</h4>
+                                    <div class="booking-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-calendar"></i>
+                                            <span>Dec 15-18, 2025</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-users"></i>
+                                            <span>2 Guests</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-moon"></i>
+                                            <span>3 Nights</span>
+                                        </div>
+                                    </div>
+                                    <div class="booking-footer">
+                                        <span class="booking-price">₱15,000</span>
+                                        <button class="btn-secondary btn-sm" onclick="showBookingDetails(0)">View
+                                            Details</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Booking Card 2 -->
+                            <div class="booking-card">
+                                <div class="booking-image">
+                                    <img src="img/poolarea.jpg" alt="Executive Suite">
+                                    <span class="booking-status completed">Completed</span>
+                                </div>
+                                <div class="booking-details">
+                                    <h4>Executive Suite</h4>
+                                    <div class="booking-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-calendar"></i>
+                                            <span>Nov 10-13, 2025</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-users"></i>
+                                            <span>2 Guests</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-moon"></i>
+                                            <span>3 Nights</span>
+                                        </div>
+                                    </div>
+                                    <div class="booking-footer">
+                                        <span class="booking-price">₱36,000</span>
+                                        <button class="btn-secondary btn-sm" onclick="showBookingDetails(1)">View
+                                            Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Booking Details</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-image" src="" alt="Room">
+                <div class="detail-row">
+                    <span class="detail-label">Guest Name:</span>
+                    <span class="detail-value" id="modalGuestName"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value" id="modalEmail"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Room Type:</span>
+                    <span class="detail-value" id="modalRoomType"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Check-in Date:</span>
+                    <span class="detail-value" id="modalCheckin"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Check-out Date:</span>
+                    <span class="detail-value" id="modalCheckout"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Number of Guests:</span>
+                    <span class="detail-value" id="modalGuests"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Number of Nights:</span>
+                    <span class="detail-value" id="modalNights"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total Amount Paid:</span>
+                    <span class="detail-value" id="modalPrice"
+                        style="color: #d4af37; font-size: 1.25rem; font-weight: 700;"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value" id="modalStatus"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GoldenRidge Resort</h3>
+                <p>Your sanctuary of luxury and peace. Experience the best of hospitality.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="rooms.html">Rooms & Cottages</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="staff.html">Our Team</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="login.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +63 912 345 6789</li>
+                    <li><i class="fas fa-envelope"></i> reservations@GoldenRidge.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paradise Island, Philippines</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldenRidge Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Static booking data
+        const bookingsData = [
+            {
+                image: 'img/hotelroom.jpg',
+                roomType: 'Deluxe Ocean View',
+                checkin: 'December 15, 2025',
+                checkout: 'December 18, 2025',
+                guests: 2,
+                nights: 3,
+                price: '₱15,000',
+                status: 'Confirmed'
+            },
+            {
+                image: 'img/poolarea.jpg',
+                roomType: 'Executive Suite',
+                checkin: 'November 10, 2025',
+                checkout: 'November 13, 2025',
+                guests: 2,
+                nights: 3,
+                price: '₱36,000',
+                status: 'Completed'
+            }
+        ];
+
+        // Load user profile data
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Populate profile data
+            document.getElementById('profile-avatar-large').textContent = user.name.charAt(0).toUpperCase();
+            document.getElementById('profile-sidebar-name').textContent = user.name;
+            document.getElementById('profile-sidebar-email').textContent = user.email || 'No email provided';
+            document.getElementById('fullname').value = user.name;
+            document.getElementById('email').value = user.email || '';
+
+            // Set member since year
+            document.getElementById('member-since').textContent = new Date().getFullYear();
+
+            // Load saved profile data if exists
+            const profileData = JSON.parse(localStorage.getItem('profileData') || '{}');
+            if (profileData.phone) document.getElementById('phone').value = profileData.phone;
+            if (profileData.birthdate) document.getElementById('birthdate').value = profileData.birthdate;
+            if (profileData.address) document.getElementById('address').value = profileData.address;
+            if (profileData.language) document.getElementById('language').value = profileData.language;
+            if (profileData.currency) document.getElementById('currency').value = profileData.currency;
+            if (profileData.newsletter) document.getElementById('newsletter').checked = profileData.newsletter;
+            if (profileData.notifications) document.getElementById('notifications').checked = profileData.notifications;
+        });
+
+        // Show booking details modal
+        function showBookingDetails(index) {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const booking = bookingsData[index];
+
+            document.getElementById('modalImage').src = booking.image;
+            document.getElementById('modalGuestName').textContent = user.name;
+            document.getElementById('modalEmail').textContent = user.email;
+            document.getElementById('modalRoomType').textContent = booking.roomType;
+            document.getElementById('modalCheckin').textContent = booking.checkin;
+            document.getElementById('modalCheckout').textContent = booking.checkout;
+            document.getElementById('modalGuests').textContent = booking.guests;
+            document.getElementById('modalNights').textContent = booking.nights;
+            document.getElementById('modalPrice').textContent = booking.price;
+            document.getElementById('modalStatus').textContent = booking.status;
+
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Toggle edit mode
+        function toggleEdit(section) {
+            const form = document.getElementById(`${section}-form`) || document.getElementById(`${section}-info-form`);
+            const actions = document.getElementById(`${section}-actions`);
+            const inputs = form.querySelectorAll('input, textarea, select');
+
+            inputs.forEach(input => {
+                input.disabled = !input.disabled;
+            });
+
+            if (actions) {
+                actions.style.display = actions.style.display === 'none' ? 'flex' : 'none';
+            }
+        }
+
+        // Cancel edit
+        function cancelEdit(section) {
+            toggleEdit(section);
+            location.reload();
+        }
+
+        // Handle form submissions
+        document.getElementById('personal-info-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const profileData = JSON.parse(localStorage.getItem('profileData') || '{}');
+            profileData.phone = document.getElementById('phone').value;
+            profileData.birthdate = document.getElementById('birthdate').value;
+            profileData.address = document.getElementById('address').value;
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+
+            const user = JSON.parse(localStorage.getItem('user'));
+            user.name = document.getElementById('fullname').value;
+            localStorage.setItem('user', JSON.stringify(user));
+
+            alert('Personal information updated successfully!');
+            toggleEdit('personal');
+        });
+
+        document.getElementById('security-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            alert('Password updated successfully!');
+            toggleEdit('security');
+            document.getElementById('security-form').reset();
+        });
+
+        document.getElementById('preferences-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const profileData = JSON.parse(localStorage.getItem('profileData') || '{}');
+            profileData.language = document.getElementById('language').value;
+            profileData.currency = document.getElementById('currency').value;
+            profileData.newsletter = document.getElementById('newsletter').checked;
+            profileData.notifications = document.getElementById('notifications').checked;
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+
+            alert('Preferences saved successfully!');
+            toggleEdit('preferences');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay | GoldenRidge Resort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">GoldenRidge <span>Resort</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rooms.html" class="nav-link">Rooms & Cottages</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="staff.html" class="nav-link">Our Team</a></li>
+                <li><a href="booking.html" class="nav-link active">Book Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="user-auth-area">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                </div>
+                <a href="booking.html" class="btn-primary">Reserve</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="height: 40vh;">
+            <div class="hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1563911302283-d2bc129e7c1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+            </div>
+            <div class="hero-content">
+                <h1>Book Your Stay</h1>
+                <p>Secure your reservation today.</p>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="booking-grid">
+                <!-- Left Column: Booking Form -->
+                <div class="booking-form-card">
+                    <div class="section-title" style="text-align: left; margin-bottom: 2rem;">
+                        <h2>Reservation Details</h2>
+                        <p style="margin: 0;">Please fill in your details to complete your booking.</p>
+                    </div>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="room-type">Room Type</label>
+                            <select id="room-type" name="room-type" required>
+                                <option value="">Select a Room</option>
+                                <option value="deluxe" data-price="5000">Deluxe Ocean View (₱5,000/night)</option>
+                                <option value="family" data-price="8500">Family Cottage (₱8,500/night)</option>
+                                <option value="executive" data-price="12000">Executive Suite (₱12,000/night)</option>
+                                <option value="standard" data-price="3500">Standard Room (₱3,500/night)</option>
+                                <option value="villa" data-price="15000">Beachfront Villa (₱15,000/night)</option>
+                                <option value="loft" data-price="6000">Garden Loft (₱6,000/night)</option>
+                            </select>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label for="check-in">Check-in Date</label>
+                                <input type="date" id="check-in" name="check-in" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="check-out">Check-out Date</label>
+                                <input type="date" id="check-out" name="check-out" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
+                        </div>
+
+                        <div class="section-title" style="text-align: left; margin-top: 2rem; margin-bottom: 1.5rem;">
+                            <h3>Guest Information</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" required placeholder="John Doe">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+63 912 345 6789">
+                            </div>
+                        </div>
+
+                        <div class="section-title" style="text-align: left; margin-top: 2rem; margin-bottom: 1.5rem;">
+                            <h3>Payment Method</h3>
+                        </div>
+
+                        <div class="payment-methods">
+                            <div class="payment-method" onclick="selectPayment('gcash')">
+                                <img src="https://static.vecteezy.com/system/resources/previews/067/065/665/non_2x/gcash-logo-square-rounded-gcash-logo-free-download-gcash-logo-free-png.png"
+                                    alt="GCash">
+                                <p>GCash</p>
+                            </div>
+                            <div class="payment-method" onclick="selectPayment('paymaya')">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/PayMaya_Logo.png/1200px-PayMaya_Logo.png"
+                                    alt="Maya">
+                                <p>Maya</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="selected-payment" name="payment" required>
+
+                        <button type="submit" class="btn-primary"
+                            style="width: 100%; margin-top: 2rem; font-size: 1.1rem; padding: 1rem;">Confirm
+                            Reservation</button>
+                    </form>
+                </div>
+
+                <!-- Right Column: Booking Summary -->
+                <div class="booking-summary-card">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-item">
+                        <span>Room Type</span>
+                        <span id="summary-room" style="font-weight: 500;">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Duration</span>
+                        <span id="summary-nights">0 nights</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Guests</span>
+                        <span id="summary-guests">2</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total Amount</span>
+                        <span id="summary-total">₱0</span>
+                    </div>
+                    <div style="margin-top: 2rem; font-size: 0.85rem; color: #666; text-align: center;">
+                        <p><i class="fas fa-lock"></i> Secure Booking</p>
+                        <p>No hidden fees. Free cancellation up to 24 hours before check-in.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GoldenRidge Resort</h3>
+                <p>Your sanctuary of luxury and peace. Experience the best of hospitality.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="rooms.html">Rooms & Cottages</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="login.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +63 912 345 6789</li>
+                    <li><i class="fas fa-envelope"></i> reservations@GoldenRidge.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paradise Island, Philippines</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldenRidge Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Update guest count in summary
+        document.getElementById('guests').addEventListener('input', function (e) {
+            document.getElementById('summary-guests').textContent = e.target.value;
+        });
+    </script>
+</body>
+
+</html>

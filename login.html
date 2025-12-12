@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | GoldenRidge Resort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="auth-page">
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Wisteria <span>Resort</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rooms.html" class="nav-link">Rooms & Cottages</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="staff.html" class="nav-link">Our Team</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="booking.html" class="btn-primary">Reserve</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="form-container">
+                <div class="section-title" style="margin-bottom: 1.5rem;">
+                    <h2>Welcome Back</h2>
+                    <p>Login to manage your bookings.</p>
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+                        Don't have an account? <a href="register.html"
+                            style="color: var(--accent-color); font-weight: 600;">Register here</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

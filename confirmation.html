@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | GoldenRidge Resort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .confirmation-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #2ecc71;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-details {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .payment-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #e8f5e9;
+            color: #2ecc71;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">GoldenRidge <span>Resort</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rooms.html" class="nav-link">Rooms & Cottages</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="staff.html" class="nav-link">Our Team</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="user-auth-area">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                </div>
+                <a href="booking.html" class="btn-primary">Reserve</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero"
+            style="height: 30vh; background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
+            <div class="hero-content">
+                <h1>Booking Confirmed</h1>
+            </div>
+        </section>
+
+        <section class="confirmation-section">
+            <div class="confirmation-card">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h2>Reservation Successful!</h2>
+                <p>Thank you for choosing GoldenRidge Resort. Your booking has been confirmed.</p>
+
+                <div class="booking-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Reference Number:</span>
+                        <span id="conf-ref">WR-2025-0001</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Guest Name:</span>
+                        <span id="conf-name">John Doe</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Room Type:</span>
+                        <span id="conf-room">Deluxe Ocean View</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Check-in:</span>
+                        <span id="conf-checkin">2025-12-01</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Check-out:</span>
+                        <span id="conf-checkout">2025-12-05</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Total Amount:</span>
+                        <span id="conf-total">₱20,000</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Payment Method:</span>
+                        <span id="conf-payment">GCash</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Transaction ID:</span>
+                        <span id="conf-trans-id">TXN123456789</span>
+                    </div>
+                </div>
+
+                <div class="payment-status">
+                    <i class="fas fa-check"></i> Payment Received
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <button onclick="window.print()" class="btn-secondary"><i class="fas fa-print"></i> Print
+                        Confirmation</button>
+                    <a href="index.html" class="btn-primary">Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GoldenRidge Resort</h3>
+                <p>Your sanctuary of luxury and peace. Experience the best of hospitality.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="rooms.html">Rooms & Cottages</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="login.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +63 912 345 6789</li>
+                    <li><i class="fas fa-envelope"></i> reservations@GoldenRidge.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paradise Island, Philippines</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldenRidge Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Populate confirmation details from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookingData = JSON.parse(localStorage.getItem('lastBooking'));
+            if (bookingData) {
+                document.getElementById('conf-ref').textContent = bookingData.refNumber;
+                document.getElementById('conf-name').textContent = bookingData.fullname;
+                document.getElementById('conf-room').textContent = bookingData.roomName;
+                document.getElementById('conf-checkin').textContent = bookingData.checkIn;
+                document.getElementById('conf-checkout').textContent = bookingData.checkOut;
+                document.getElementById('conf-total').textContent = bookingData.totalAmount;
+                document.getElementById('conf-payment').textContent = bookingData.paymentMethod;
+                document.getElementById('conf-trans-id').textContent = bookingData.transactionId;
+            }
+        });
+    </script>
+</body>
+
+</html>

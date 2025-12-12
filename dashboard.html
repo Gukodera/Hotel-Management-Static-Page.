@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenRidge Resort | Staff Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">GoldenRidge <span>Admin</span></a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-item active" data-target="dashboard-view"><i
+                                class="fas fa-chart-line"></i> Dashboard</a></li>
+                    <li><a href="#" class="nav-item" data-target="analytics-view"><i class="fas fa-chart-bar"></i>
+                            Analytics</a></li>
+                    <li><a href="#" class="nav-item" data-target="rooms-view"><i class="fas fa-bed"></i> Manage
+                            Rooms</a></li>
+                    <li><a href="#" class="nav-item" data-target="reservations-view"><i
+                                class="fas fa-calendar-check"></i> Reservations</a></li>
+                    <li><a href="#" class="nav-item" data-target="users-view"><i class="fas fa-users"></i> Manage
+                            Users</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h2 id="page-header">Dashboard Overview</h2>
+                </div>
+                <div class="user-profile">
+                    <span class="user-name">Admin Staff</span>
+                    <div class="avatar">AS</div>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <section id="dashboard-view" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-bed"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Rooms</h3>
+                            <p>24</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="stat-info">
+                            <h3>Available</h3>
+                            <p>8</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-info">
+                            <h3>Reservations</h3>
+                            <p>12</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3>Guests</h3>
+                            <p>36</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon"><i class="fas fa-plus"></i></span>
+                            <div class="activity-details">
+                                <p><strong>New Reservation</strong> by John Doe</p>
+                                <span class="time">2 mins ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon warning"><i class="fas fa-exclamation-triangle"></i></span>
+                            <div class="activity-details">
+                                <p><strong>Room 102</strong> marked for maintenance</p>
+                                <span class="time">1 hour ago</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon success"><i class="fas fa-check"></i></span>
+                            <div class="activity-details">
+                                <p><strong>Check-out</strong> completed for Room 305</p>
+                                <span class="time">3 hours ago</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="table-container" style="margin-top: 2rem;">
+                    <h3>Recent Bookings</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Guest</th>
+                                <th>Room</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alice Johnson</td>
+                                <td>Deluxe 104</td>
+                                <td>Today</td>
+                                <td><span class="status-badge confirmed">Confirmed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Robert Brown</td>
+                                <td>Family Cottage 202</td>
+                                <td>Yesterday</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Emily Davis</td>
+                                <td>Executive Suite 301</td>
+                                <td>Nov 24, 2025</td>
+                                <td><span class="status-badge confirmed">Confirmed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Michael Wilson</td>
+                                <td>Deluxe 105</td>
+                                <td>Nov 23, 2025</td>
+                                <td><span class="status-badge confirmed">Confirmed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Analytics View -->
+            <section id="analytics-view" class="content-section">
+                <!-- Key Metrics Overview -->
+                <div class="metrics-overview">
+                    <div class="metric-card primary">
+                        <div class="metric-header">
+                            <div class="metric-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <span class="metric-trend up">
+                                <i class="fas fa-arrow-up"></i> 12.5%
+                            </span>
+                        </div>
+                        <div class="metric-body">
+                            <h3>Total Revenue</h3>
+                            <p class="metric-value">₱900,000</p>
+                            <span class="metric-subtitle">This month</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card success">
+                        <div class="metric-header">
+                            <div class="metric-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <span class="metric-trend up">
+                                <i class="fas fa-arrow-up"></i> 8.2%
+                            </span>
+                        </div>
+                        <div class="metric-body">
+                            <h3>Occupancy Rate</h3>
+                            <p class="metric-value">80%</p>
+                            <span class="metric-subtitle">19 of 24 rooms</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card warning">
+                        <div class="metric-header">
+                            <div class="metric-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <span class="metric-trend up">
+                                <i class="fas fa-arrow-up"></i> 15.3%
+                            </span>
+                        </div>
+                        <div class="metric-body">
+                            <h3>Total Bookings</h3>
+                            <p class="metric-value">156</p>
+                            <span class="metric-subtitle">This month</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card info">
+                        <div class="metric-header">
+                            <div class="metric-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="metric-trend neutral">
+                                <i class="fas fa-minus"></i> 0%
+                            </span>
+                        </div>
+                        <div class="metric-body">
+                            <h3>Avg. Rating</h3>
+                            <p class="metric-value">4.8</p>
+                            <span class="metric-subtitle">Based on 89 reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <!-- Revenue Trends -->
+                    <div class="chart-card large">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Revenue Trends</h3>
+                                <p class="chart-subtitle">Monthly revenue comparison</p>
+                            </div>
+                            <div class="chart-actions">
+                                <button class="chart-btn active">Revenue</button>
+                                <button class="chart-btn">Bookings</button>
+                                <button class="chart-btn">Guests</button>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="bar-chart-modern">
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 45%;" data-value="₱450K"></div>
+                                    <span class="bar-label">Jan</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 52%;" data-value="₱520K"></div>
+                                    <span class="bar-label">Feb</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 68%;" data-value="₱680K"></div>
+                                    <span class="bar-label">Mar</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 75%;" data-value="₱750K"></div>
+                                    <span class="bar-label">Apr</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 85%;" data-value="₱850K"></div>
+                                    <span class="bar-label">May</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 92%;" data-value="₱920K"></div>
+                                    <span class="bar-label">Jun</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 100%;" data-value="₱1M"></div>
+                                    <span class="bar-label">Jul</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 95%;" data-value="₱950K"></div>
+                                    <span class="bar-label">Aug</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 88%;" data-value="₱880K"></div>
+                                    <span class="bar-label">Sep</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 78%;" data-value="₱780K"></div>
+                                    <span class="bar-label">Oct</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 82%;" data-value="₱820K"></div>
+                                    <span class="bar-label">Nov</span>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar active" style="height: 90%;" data-value="₱900K"></div>
+                                    <span class="bar-label">Dec</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Occupancy & Sources -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Occupancy Rate</h3>
+                                <p class="chart-subtitle">Current month performance</p>
+                            </div>
+                        </div>
+                        <div class="chart-body centered">
+                            <div class="circular-progress-modern">
+                                <svg width="200" height="200">
+                                    <circle cx="100" cy="100" r="85" class="progress-bg"></circle>
+                                    <circle cx="100" cy="100" r="85" class="progress-bar"
+                                        style="stroke-dashoffset: 106;"></circle>
+                                </svg>
+                                <div class="progress-value">
+                                    <span class="percentage">80%</span>
+                                    <span class="label">Occupied</span>
+                                </div>
+                            </div>
+                            <div class="occupancy-breakdown">
+                                <div class="breakdown-item">
+                                    <span class="dot occupied"></span>
+                                    <span class="breakdown-label">Occupied</span>
+                                    <span class="breakdown-value">19 rooms</span>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="dot available"></span>
+                                    <span class="breakdown-label">Available</span>
+                                    <span class="breakdown-value">5 rooms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Sources & Demographics -->
+                <div class="insights-section">
+                    <div class="insight-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Booking Sources</h3>
+                                <p class="chart-subtitle">Distribution by platform</p>
+                            </div>
+                        </div>
+                        <div class="source-list-modern">
+                            <div class="source-item-modern">
+                                <div class="source-header">
+                                    <div class="source-icon" style="background: #4338ca;">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <div class="source-details">
+                                        <span class="source-name">Direct Website</span>
+                                        <span class="source-count">70 bookings</span>
+                                    </div>
+                                </div>
+                                <div class="source-stats">
+                                    <span class="source-percentage">45%</span>
+                                    <div class="progress-bar-modern">
+                                        <div class="progress-fill" style="width: 45%; background: #4338ca;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="source-item-modern">
+                                <div class="source-header">
+                                    <div class="source-icon" style="background: #15803d;">
+                                        <i class="fas fa-hotel"></i>
+                                    </div>
+                                    <div class="source-details">
+                                        <span class="source-name">Booking.com</span>
+                                        <span class="source-count">44 bookings</span>
+                                    </div>
+                                </div>
+                                <div class="source-stats">
+                                    <span class="source-percentage">28%</span>
+                                    <div class="progress-bar-modern">
+                                        <div class="progress-fill" style="width: 28%; background: #15803d;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="source-item-modern">
+                                <div class="source-header">
+                                    <div class="source-icon" style="background: #c2410c;">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="source-details">
+                                        <span class="source-name">Agoda</span>
+                                        <span class="source-count">28 bookings</span>
+                                    </div>
+                                </div>
+                                <div class="source-stats">
+                                    <span class="source-percentage">18%</span>
+                                    <div class="progress-bar-modern">
+                                        <div class="progress-fill" style="width: 18%; background: #c2410c;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="source-item-modern">
+                                <div class="source-header">
+                                    <div class="source-icon" style="background: #be185d;">
+                                        <i class="fas fa-walking"></i>
+                                    </div>
+                                    <div class="source-details">
+                                        <span class="source-name">Walk-in</span>
+                                        <span class="source-count">14 bookings</span>
+                                    </div>
+                                </div>
+                                <div class="source-stats">
+                                    <span class="source-percentage">9%</span>
+                                    <div class="progress-bar-modern">
+                                        <div class="progress-fill" style="width: 9%; background: #be185d;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Guest Demographics</h3>
+                                <p class="chart-subtitle">Visitor breakdown</p>
+                            </div>
+                        </div>
+                        <div class="demographics-modern">
+                            <div class="demo-card">
+                                <div class="demo-icon-large"
+                                    style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe);">
+                                    <i class="fas fa-users" style="color: #4338ca;"></i>
+                                </div>
+                                <div class="demo-content">
+                                    <span class="demo-value">42%</span>
+                                    <span class="demo-label">Families</span>
+                                    <span class="demo-count">66 guests</span>
+                                </div>
+                            </div>
+
+                            <div class="demo-card">
+                                <div class="demo-icon-large"
+                                    style="background: linear-gradient(135deg, #fce7f3, #fbcfe8);">
+                                    <i class="fas fa-heart" style="color: #be185d;"></i>
+                                </div>
+                                <div class="demo-content">
+                                    <span class="demo-value">35%</span>
+                                    <span class="demo-label">Couples</span>
+                                    <span class="demo-count">55 guests</span>
+                                </div>
+                            </div>
+
+                            <div class="demo-card">
+                                <div class="demo-icon-large"
+                                    style="background: linear-gradient(135deg, #fff7ed, #fed7aa);">
+                                    <i class="fas fa-briefcase" style="color: #c2410c;"></i>
+                                </div>
+                                <div class="demo-content">
+                                    <span class="demo-value">15%</span>
+                                    <span class="demo-label">Business</span>
+                                    <span class="demo-count">23 guests</span>
+                                </div>
+                            </div>
+
+                            <div class="demo-card">
+                                <div class="demo-icon-large"
+                                    style="background: linear-gradient(135deg, #dcfce7, #bbf7d0);">
+                                    <i class="fas fa-user" style="color: #15803d;"></i>
+                                </div>
+                                <div class="demo-content">
+                                    <span class="demo-value">8%</span>
+                                    <span class="demo-label">Solo</span>
+                                    <span class="demo-count">12 guests</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="performance-section">
+                    <div class="performance-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Room Performance</h3>
+                                <p class="chart-subtitle">Top performing room types</p>
+                            </div>
+                        </div>
+                        <div class="performance-list">
+                            <div class="performance-item">
+                                <div class="performance-rank">1</div>
+                                <div class="performance-info">
+                                    <span class="performance-name">Executive Suite</span>
+                                    <span class="performance-stats">₱360,000 revenue • 30 bookings</span>
+                                </div>
+                                <div class="performance-badge success">+18%</div>
+                            </div>
+                            <div class="performance-item">
+                                <div class="performance-rank">2</div>
+                                <div class="performance-info">
+                                    <span class="performance-name">Family Cottage</span>
+                                    <span class="performance-stats">₱255,000 revenue • 30 bookings</span>
+                                </div>
+                                <div class="performance-badge success">+12%</div>
+                            </div>
+                            <div class="performance-item">
+                                <div class="performance-rank">3</div>
+                                <div class="performance-info">
+                                    <span class="performance-name">Deluxe Ocean View</span>
+                                    <span class="performance-stats">₱285,000 revenue • 57 bookings</span>
+                                </div>
+                                <div class="performance-badge success">+8%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-card">
+                        <div class="chart-header">
+                            <div>
+                                <h3>Peak Booking Times</h3>
+                                <p class="chart-subtitle">Hourly distribution</p>
+                            </div>
+                        </div>
+                        <div class="heatmap">
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Mon</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell low"></div>
+                                    <div class="heatmap-cell low"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell low"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Tue</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell low"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell low"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Wed</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Thu</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell low"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell low"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Fri</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Sat</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-row">
+                                <span class="heatmap-label">Sun</span>
+                                <div class="heatmap-cells">
+                                    <div class="heatmap-cell medium"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell very-high"></div>
+                                    <div class="heatmap-cell high"></div>
+                                    <div class="heatmap-cell medium"></div>
+                                </div>
+                            </div>
+                            <div class="heatmap-legend">
+                                <span class="legend-label">Time:</span>
+                                <span class="legend-item">6AM</span>
+                                <span class="legend-item">10AM</span>
+                                <span class="legend-item">2PM</span>
+                                <span class="legend-item">6PM</span>
+                                <span class="legend-item">10PM</span>
+                                <span class="legend-item">2AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rooms Management View -->
+            <section id="rooms-view" class="content-section">
+                <div class="section-actions">
+                    <button class="btn-primary" id="add-room-btn"><i class="fas fa-plus"></i> Add New Room</button>
+                </div>
+
+                <!-- Add Room Modal (Hidden by default) -->
+                <div id="add-room-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3>Add New Room</h3>
+                        <form id="add-room-form">
+                            <div class="form-group">
+                                <label for="room-name">Room Name/Number</label>
+                                <input type="text" id="room-name" required placeholder="e.g. Deluxe Suite 101">
+                            </div>
+                            <div class="form-group">
+                                <label for="room-type">Room Type</label>
+                                <select id="room-type">
+                                    <option value="Deluxe">Deluxe Ocean View</option>
+                                    <option value="Family">Family Cottage</option>
+                                    <option value="Executive">Executive Suite</option>
+                                    <option value="Standard">Standard Room</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="room-price">Price per Night (₱)</label>
+                                <input type="number" id="room-price" required placeholder="5000">
+                            </div>
+                            <div class="form-group">
+                                <label for="room-status">Status</label>
+                                <select id="room-status">
+                                    <option value="Available">Available</option>
+                                    <option value="Occupied">Occupied</option>
+                                    <option value="Maintenance">Maintenance</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="room-image">Room Image</label>
+                                <input type="file" id="room-image" accept="image/*">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Room</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Room Name</th>
+                                <th>Type</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rooms-table-body">
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=100"
+                                        alt="Room" class="table-img"></td>
+                                <td>Deluxe 101</td>
+                                <td>Deluxe Ocean View</td>
+                                <td>₱5,000</td>
+                                <td><span class="status-badge available">Available</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=100"
+                                        alt="Room" class="table-img"></td>
+                                <td>Cottage 201</td>
+                                <td>Family Cottage</td>
+                                <td>₱8,500</td>
+                                <td><span class="status-badge occupied">Occupied</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=100"
+                                        alt="Room" class="table-img"></td>
+                                <td>Suite 301</td>
+                                <td>Executive Suite</td>
+                                <td>₱12,000</td>
+                                <td><span class="status-badge available">Available</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=100"
+                                        alt="Room" class="table-img"></td>
+                                <td>Deluxe 102</td>
+                                <td>Deluxe Ocean View</td>
+                                <td>₱5,000</td>
+                                <td><span class="status-badge maintenance">Maintenance</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=100"
+                                        alt="Room" class="table-img"></td>
+                                <td>Cottage 202</td>
+                                <td>Family Cottage</td>
+                                <td>₱8,500</td>
+                                <td><span class="status-badge available">Available</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reservations View -->
+            <section id="reservations-view" class="content-section">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Guest Name</th>
+                                <th>Room</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#RES001</td>
+                                <td>John Doe</td>
+                                <td>Deluxe 101</td>
+                                <td>2025-12-01</td>
+                                <td>2025-12-05</td>
+                                <td><span class="status-badge confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#RES002</td>
+                                <td>Jane Smith</td>
+                                <td>Cottage 201</td>
+                                <td>2025-12-10</td>
+                                <td>2025-12-12</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>
+                                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn check"><i class="fas fa-check"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#RES003</td>
+                                <td>Alice Johnson</td>
+                                <td>Deluxe 104</td>
+                                <td>2025-11-26</td>
+                                <td>2025-11-28</td>
+                                <td><span class="status-badge confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#RES004</td>
+                                <td>Robert Brown</td>
+                                <td>Family Cottage 202</td>
+                                <td>2025-11-25</td>
+                                <td>2025-11-30</td>
+                                <td><span class="status-badge pending">Pending</span></td>
+                                <td>
+                                    <button class="action-btn view"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn check"><i class="fas fa-check"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Users Management View -->
+            <section id="users-view" class="content-section">
+                <div class="section-actions">
+                    <button class="btn-primary"><i class="fas fa-user-plus"></i> Add User</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Admin Staff</td>
+                                <td>admin@goldenridge.com</td>
+                                <td>Administrator</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Receptionist 1</td>
+                                <td>frontdesk@goldenridge.com</td>
+                                <td>Staff</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Housekeeping Mgr</td>
+                                <td>housekeeping@goldenridge.com</td>
+                                <td>Staff</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

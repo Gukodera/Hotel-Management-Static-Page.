@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenRidge Resort | Luxury Getaway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">GoldenRidge <span>Resort</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="rooms.html" class="nav-link">Rooms & Cottages</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="staff.html" class="nav-link">Our Team</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="user-auth-area">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                </div>
+                <a href="booking.html" class="btn-primary">Reserve</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>Experience Paradise</h1>
+                <p>Escape to a world of luxury and tranquility at GoldenRidge Resort. Your perfect getaway awaits.</p>
+                <a href="rooms.html" class="btn-primary">Explore Rooms</a>
+            </div>
+        </section>
+
+        <section class="featured-rooms">
+            <div class="section-title">
+                <h2>Luxury Accommodations</h2>
+                <p>Choose from our exquisite selection of rooms and cottages designed for your comfort.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Deluxe Room">
+                    </div>
+                    <div class="card-content">
+                        <h3>Deluxe Ocean View</h3>
+                        <span class="card-price">₱5,000 / night</span>
+                        <div class="card-features">
+                            <i class="fas fa-bed"></i> King Bed &nbsp;
+                            <i class="fas fa-wifi"></i> Free Wifi &nbsp;
+                            <i class="fas fa-water"></i> Ocean View
+                        </div>
+                        <a href="booking.html?room=deluxe" class="btn-secondary">Book Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Family Cottage">
+                    </div>
+                    <div class="card-content">
+                        <h3>Family Cottage</h3>
+                        <span class="card-price">₱8,500 / night</span>
+                        <div class="card-features">
+                            <i class="fas fa-users"></i> 4 Guests &nbsp;
+                            <i class="fas fa-kitchen-set"></i> Kitchen &nbsp;
+                            <i class="fas fa-tree"></i> Garden View
+                        </div>
+                        <a href="booking.html?room=family" class="btn-secondary">Book Now</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Executive Suite">
+                    </div>
+                    <div class="card-content">
+                        <h3>Executive Suite</h3>
+                        <span class="card-price">₱12,000 / night</span>
+                        <div class="card-features">
+                            <i class="fas fa-star"></i> VIP Service &nbsp;
+                            <i class="fas fa-hot-tub"></i> Jacuzzi &nbsp;
+                            <i class="fas fa-glass-cheers"></i> Mini Bar
+                        </div>
+                        <a href="booking.html?room=executive" class="btn-secondary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="amenities">
+            <div class="section-title">
+                <h2>World-Class Facilities</h2>
+                <p>Indulge in our premium amenities designed to make your stay unforgettable.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Infinity Pool">
+                    </div>
+                    <div class="card-content">
+                        <h3>Infinity Pool</h3>
+                        <p>Swim with a view in our temperature-controlled infinity pool overlooking the ocean.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Fine Dining">
+                    </div>
+                    <div class="card-content">
+                        <h3>Fine Dining</h3>
+                        <p>Savor exquisite local and international cuisine prepared by our master chefs.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Spa & Wellness">
+                    </div>
+                    <div class="card-content">
+                        <h3>Spa & Wellness</h3>
+                        <p>Rejuvenate your body and mind with our signature spa treatments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Slider Section -->
+        <section class="gallery-slider">
+            <div class="section-title">
+                <h2>Resort Gallery</h2>
+                <p>Explore the beauty of GoldenRidge through our stunning collection of images.</p>
+            </div>
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <div class="slide active">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                            alt="Resort View 1">
+                        <div class="slide-caption">
+                            <h3>Breathtaking Ocean Views</h3>
+                            <p>Wake up to stunning sunrise vistas</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                            alt="Resort View 2">
+                        <div class="slide-caption">
+                            <h3>Luxurious Poolside</h3>
+                            <p>Relax in our infinity pool paradise</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                            alt="Resort View 3">
+                        <div class="slide-caption">
+                            <h3>Elegant Interiors</h3>
+                            <p>Experience comfort and sophistication</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                            alt="Resort View 4">
+                        <div class="slide-caption">
+                            <h3>Private Cottages</h3>
+                            <p>Your home away from home</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                            alt="Resort View 5">
+                        <div class="slide-caption">
+                            <h3>Tropical Paradise</h3>
+                            <p>Surrounded by natural beauty</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="slider-dots"></div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="section-title">
+                <h2>Guest Experiences</h2>
+                <p>Hear what our guests have to say about their unforgettable stays.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"An absolutely magical experience! The staff went above and beyond to
+                        make our anniversary special. The ocean view room was breathtaking."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Guest">
+                        <div>
+                            <h4>Maria Santos</h4>
+                            <span>Manila, Philippines</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Perfect family getaway! The kids loved the pool and the cottage was
+                        spacious and comfortable. We'll definitely be back!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Guest">
+                        <div>
+                            <h4>John Reyes</h4>
+                            <span>Cebu, Philippines</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The spa treatments were divine and the food was exceptional. This
+                        resort truly offers a five-star experience in every way."</p>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Guest">
+                        <div>
+                            <h4>Sofia Chen</h4>
+                            <span>Singapore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="section-title">
+                <h2>Find Us</h2>
+                <p>Located in the heart of paradise, we're easy to reach and impossible to forget.</p>
+            </div>
+            <div class="map-container">
+                <div id="resort-map"></div>
+                <div class="map-info-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
+                    <p><strong>GoldenRidge Resort</strong></p>
+                    <p>Paradise Island, Tagum City</p>
+                    <p>Philippines</p>
+                    <hr>
+                    <h3><i class="fas fa-phone"></i> Contact</h3>
+                    <p>+63 912 345 6789</p>
+                    <p>reservations@goldenridge.com</p>
+                    <hr>
+                    <h3><i class="fas fa-clock"></i> Reception Hours</h3>
+                    <p>24/7 Service</p>
+                    <a href="booking.html" class="btn-primary" style="margin-top: 1.5rem; display: inline-block;">Get
+                        Directions</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GoldenRidge Resort</h3>
+                <p>Your sanctuary of luxury and peace. Experience the best of hospitality.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="rooms.html">Rooms & Cottages</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="staff.html">Our Team</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="login.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +63 912 345 6789</li>
+                    <li><i class="fas fa-envelope"></i> reservations@GoldenRidge.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paradise Island, Philippines</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldenRidge Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

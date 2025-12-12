@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenRidge Resort | Photo Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">GoldenRidge <span>Resort</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="rooms.html" class="nav-link">Rooms & Cottages</a></li>
+                <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="staff.html" class="nav-link">Our Team</a></li>
+                <li><a href="booking.html" class="nav-link">Book Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div id="user-auth-area">
+                    <a href="login.html" class="btn-secondary">Login</a>
+                </div>
+                <a href="booking.html" class="btn-primary">Reserve</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="min-height: 60vh;">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>Our Gallery</h1>
+                <p>Explore the beauty and luxury of GoldenRidge Resort through our stunning collection of moments.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Categories -->
+        <section style="padding: 6rem 2rem; background-color: var(--bg-body);">
+            <div class="section-title">
+                <h2>Explore Our Resort</h2>
+                <p>Browse through our collection of beautiful spaces, amenities, and experiences.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="rooms">Rooms & Suites</button>
+                <button class="filter-btn" data-filter="facilities">Facilities</button>
+                <button class="filter-btn" data-filter="dining">Dining</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="nature">Nature & Views</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Rooms & Suites -->
+                <div class="gallery-item" data-category="rooms">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Deluxe Ocean View Room">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Deluxe Ocean View</h3>
+                                <p>Luxury Accommodation</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="rooms">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Family Cottage">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Family Cottage</h3>
+                                <p>Spacious & Comfortable</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="rooms">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Executive Suite">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Executive Suite</h3>
+                                <p>Premium Experience</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facilities -->
+                <div class="gallery-item" data-category="facilities">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Infinity Pool">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Infinity Pool</h3>
+                                <p>Relaxation & Recreation</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="facilities">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Spa & Wellness Center">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Spa & Wellness</h3>
+                                <p>Rejuvenation & Therapy</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="facilities">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Fitness Center">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Fitness Center</h3>
+                                <p>State-of-the-Art Equipment</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dining -->
+                <div class="gallery-item" data-category="dining">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Fine Dining Restaurant">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Fine Dining</h3>
+                                <p>Exquisite Cuisine</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dining">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Breakfast Buffet">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Breakfast Buffet</h3>
+                                <p>International Selection</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="dining">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Poolside Bar">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Poolside Bar</h3>
+                                <p>Refreshing Beverages</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events -->
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f29da8c2b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Wedding Venue">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Wedding Venue</h3>
+                                <p>Romantic Celebrations</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Conference Hall">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Conference Hall</h3>
+                                <p>Business Events</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="events">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Outdoor Events">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Garden Events</h3>
+                                <p>Outdoor Celebrations</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nature & Views -->
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Sunset View">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Sunset Paradise</h3>
+                                <p>Breathtaking Views</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Mountain Views">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Mountain Scenery</h3>
+                                <p>Natural Beauty</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature">
+                    <div class="gallery-image">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Tropical Gardens">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h3>Tropical Gardens</h3>
+                                <p>Lush Landscapes</p>
+                            </div>
+                            <button class="gallery-expand"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section style="padding: 6rem 2rem; background-color: var(--primary-color); text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 1.5rem;">Experience It Yourself</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.2rem; margin-bottom: 2.5rem;">
+                    These photos only capture a glimpse of the luxury that awaits you. Book your stay today and create
+                    your own unforgettable memories.
+                </p>
+                <a href="booking.html" class="btn-primary"
+                    style="background: var(--secondary-color); color: var(--primary-color); border-color: var(--secondary-color);">Book
+                    Your Stay</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GoldenRidge Resort</h3>
+                <p>Your sanctuary of luxury and peace. Experience the best of hospitality.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="rooms.html">Rooms & Cottages</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="staff.html">Our Team</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="login.html">My Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +63 912 345 6789</li>
+                    <li><i class="fas fa-envelope"></i> reservations@GoldenRidge.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Paradise Island, Philippines</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GoldenRidge Resort. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Gallery filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
